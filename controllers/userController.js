@@ -83,10 +83,10 @@ const loginUser = asyncHandler(async (req, res) => {
 // we need to wrap the async function inside asyncHandler and now we dont have to write try-catch block in all functions
 // So now when ever an exception occurs it is going to pass to error handler.
 const currentUser = asyncHandler(async (req, res) => {
-    // let userDetails = req.user;
-    // const user = await User.findOne({ email: userDetails.email });
-    // res.status(200).json({ id: user._id, name: user.username, email: user.email });
-    res.status(200).json(req.user);
+    let userDetails = req.user;
+    const user = await User.findOne({ email: userDetails.email });
+    res.status(200).json({ id: user._id, name: user.username, email: user.email });
+    // res.status(200).json(req.user);
 });
 
 module.exports = { registerUser, loginUser, currentUser }
