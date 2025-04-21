@@ -8,7 +8,7 @@ const app = expresss();
 
 const port = process.env.PORT || 5000;
 
-app.use(expresss.json());
+app.use(expresss.json());    // middleware for recieving from server and sending data to server.
 app.use('/api/contacts', require("./routes/contactRoute"));
 app.use('/api/users', require("./routes/userRoute"));
 app.use(errorHandler);  // when ever we want use the middleware we need to use in app.use
